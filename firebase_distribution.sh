@@ -9,5 +9,5 @@ npx --yes \
   firebase-tools appdistribution:distribute \
     "${PRODUCTS_PATH}/${SCHEME}.ipa" \
     --app "${APP_ID}" \
-    --groups owner
+    --groups owner \
     --release-notes "${RELEASE_NOTE}"
