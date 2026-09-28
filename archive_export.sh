@@ -64,7 +64,7 @@ set -o pipefail && \
 
 # Upload dSYMs
 cd "${ARCHIVE_PATH}/dSYMs" && \
-  zip -r "${DSYM_ZIP_PATH}" *.dSYM && \
+  zip -r "${DSYM_ZIP_PATH}" ./*.dSYM && \
   cd -
 
 UPLOAD_SYMBOLS_BIN=".swiftpm/checkouts/firebase-ios-sdk/Crashlytics/upload-symbols"
