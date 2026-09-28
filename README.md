@@ -54,5 +54,5 @@ steps:
   {{ YOUR_ISSUER_ID }} \
   {{ YOUR_ASC_APP_ID }} \
   {{ YOUR_IPA_PATH }} \
-  {{ YOUR_VERSION }} \
+  {{ YOUR_VERSION }}
 ```
