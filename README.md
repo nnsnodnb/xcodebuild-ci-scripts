@@ -34,7 +34,8 @@ steps:
   {{ YOUR_SCHEME }} \
   {{ YOUR_VERSION }} \
   {{ YOUR_KEY_ID }} \
-  {{ YOUR_ISSUER_ID }}
+  {{ YOUR_ISSUER_ID }} \
+  {{ YOUR_GOOGLE_SERVICE_PLIST_PATH }}
 ```
 
 ### firebase_distribution.sh

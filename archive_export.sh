@@ -5,9 +5,11 @@ SCHEME="$2"
 VERSION="$3"
 KEY_ID="$4"
 ISSUER_ID="$5"
+GSP="$6"
 WORKSPACE="${NAME}.xcworkspace"
 PRODUCTS_PATH="$(pwd)/Products"
 ARCHIVE_PATH="${PRODUCTS_PATH}/${SCHEME}.xcarchive"
+DSYM_ZIP_PATH="${PRODUCTS_PATH}/${SCHEME}.app.dSYM.zip"
 
 if [[ "${SCHEME}" = "AdHoc" ]]; then
   EXPORT_OPTION_PLIST="$(pwd)/ci_scripts/release_testing.plist"
@@ -62,12 +64,12 @@ set -o pipefail && \
 
 # Upload dSYMs
 cd "${ARCHIVE_PATH}/dSYMs" && \
-  zip -r "${PRODUCTS_PATH}/${NAME}.app.dSYM.zip" *.dSYM && \
+  zip -r "${DSYM_ZIP_PATH}" *.dSYM && \
   cd -
 
 UPLOAD_SYMBOLS_BIN=".swiftpm/checkouts/firebase-ios-sdk/Crashlytics/upload-symbols"
 if [[ -f "${UPLOAD_SYMBOLS_BIN}" ]]; then
-  "${UPLOAD_SYMBOLS_BIN}" "${PRODUCTS_PATH}/SSLCertificateCheck.app.dSYM.zip" \
-    -gsp "App/${SCHEME}/${SCHEME}/GoogleService-Info.plist" \
+  "${UPLOAD_SYMBOLS_BIN}" "${DSYM_ZIP_PATH}" \
+    -gsp "${GSP}" \
     -p ios
 fi
