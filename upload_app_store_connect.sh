@@ -23,13 +23,16 @@ asc auth login \
   --private-key "${AUTH_KEY_PATH}" \
   --network
 
-asc auth status --validate
+asc auth status --validate --output table
 asc auth doctor
 
 asc publish appstore \
   --app "${APP_ID}" \
   --ipa "${IPA_PATH}" \
   --version "${VERSION}" \
+  --output table \
   "${OPTIONAL_ARGS[@]}"
 
-asc status --app "${APP_ID}"
+asc status \
+  --app "${APP_ID}" \
+  --output table
