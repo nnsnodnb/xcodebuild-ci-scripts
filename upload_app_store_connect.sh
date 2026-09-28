@@ -7,6 +7,7 @@ APP_ID="$4"
 IPA_PATH="$5"
 VERSION="$6"
 OPTIONAL_ARG="${7:-}"
+AUTH_KEY_PATH="${HOME}/.appstoreconnect/private_keys/AuthKey_${KEY_ID}.p8"
 
 OPTIONAL_ARGS=()
 if [[ -n "$OPTIONAL_ARG" ]]; then
@@ -19,7 +20,7 @@ asc auth login \
   --name "${NAME}" \
   --key-id "${KEY_ID}" \
   --issuer-id "${ISSUER_ID}" \
-  --private-key /tmp/AuthKey.p8 \
+  --private-key "${AUTH_KEY_PATH}" \
   --network
 
 asc auth status --validate

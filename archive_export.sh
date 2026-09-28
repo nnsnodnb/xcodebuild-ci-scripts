@@ -9,6 +9,7 @@ GSP="$6"
 WORKSPACE="${NAME}.xcworkspace"
 PRODUCTS_PATH="$(pwd)/Products"
 ARCHIVE_PATH="${PRODUCTS_PATH}/${SCHEME}.xcarchive"
+AUTH_KEY_PATH="${HOME}/.appstoreconnect/private_keys/AuthKey_${KEY_ID}.p8"
 DSYM_ZIP_PATH="${PRODUCTS_PATH}/${SCHEME}.app.dSYM.zip"
 
 if [[ "${SCHEME}" = "AdHoc" ]]; then
@@ -43,7 +44,7 @@ set -o pipefail && \
     -destination 'generic/platform=iOS' \
     -archivePath "${ARCHIVE_PATH}" \
     -allowProvisioningUpdates \
-    -authenticationKeyPath /tmp/AuthKey.p8 \
+    -authenticationKeyPath "${AUTH_KEY_PATH}" \
     -authenticationKeyID "${KEY_ID}" \
     -authenticationKeyIssuerID "${ISSUER_ID}" \
     MARKETING_VERSION="${MARKETING_VERSION}" \
@@ -57,7 +58,7 @@ set -o pipefail && \
     -archivePath "${ARCHIVE_PATH}" \
     -exportPath "${PRODUCTS_PATH}" \
     -allowProvisioningUpdates \
-    -authenticationKeyPath /tmp/AuthKey.p8 \
+    -authenticationKeyPath "${AUTH_KEY_PATH}" \
     -authenticationKeyID "${KEY_ID}" \
     -authenticationKeyIssuerID "${ISSUER_ID}" \
     MARKETING_VERSION="${MARKETING_VERSION}"
