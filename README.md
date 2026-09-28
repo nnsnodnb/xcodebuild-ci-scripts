@@ -18,6 +18,14 @@ steps:
 ./ci_scripts/create_keychain.sh
 ```
 
+### get_marketing_version.sh
+
+```bash
+./ci_scripts/get_marketing_version.sh \
+  {{ YOUR_APP_NAME }} \
+  {{ YOUR_SCHEME }}
+```
+
 ### archive_export.sh
 
 ```bash
