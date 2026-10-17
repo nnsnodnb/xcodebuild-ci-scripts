@@ -1,4 +1,5 @@
-#!/bin/bash -eu
+#!/usr/bin/env bash
+set -euxo pipefail
 
 NAME="$1"
 SCHEME="$2"
