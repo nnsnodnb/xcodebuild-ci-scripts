@@ -1,4 +1,5 @@
-#!/bin/bash -eu
+#!/usr/bin/env bash
+set -euxo pipefail
 
 security create-keychain -p "" runner.keychain
 security default-keychain -s runner.keychain

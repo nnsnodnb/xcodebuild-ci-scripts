@@ -1,4 +1,5 @@
-#!/bin/bash -eu
+#!/usr/bin/env bash
+set -euxo pipefail
 
 SCHEME="$1"
 APP_ID="$2"
