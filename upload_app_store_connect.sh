@@ -32,7 +32,7 @@ asc publish appstore \
   --ipa "${IPA_PATH}" \
   --version "${VERSION}" \
   --output table \
-  "${OPTIONAL_ARGS[@]}"
+  "${OPTIONAL_ARGS[@]+"${OPTIONAL_ARGS[@]}"}"
 
 asc status \
   --app "${APP_ID}" \
