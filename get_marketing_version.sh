@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-set -euxo pipefail
+set -euo pipefail
+
+if [ "${RUNNER_DEBUG}" = "1" ] ; then
+  set -x
+fi
 
 NAME="$1"
 SCHEME="$2"
