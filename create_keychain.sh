@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 
 if [ "${RUNNER_DEBUG}" = "1" ] ; then
   set -x
 fi
+
+set -u
 
 security create-keychain -p "" runner.keychain
 security default-keychain -s runner.keychain

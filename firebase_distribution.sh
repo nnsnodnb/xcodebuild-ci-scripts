@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 
 if [ "${RUNNER_DEBUG}" = "1" ] ; then
   set -x
 fi
+
+set -u
 
 SCHEME="$1"
 APP_ID="$2"
