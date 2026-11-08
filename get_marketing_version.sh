@@ -20,4 +20,12 @@ MARKETING_VERSION="$(xcodebuild \
   | grep -m1 "MARKETING_VERSION" \
   | awk -F ' = ' '{print $2}' \
   | tr -d '[:space:]')"
-echo "marketing_version=${MARKETING_VERSION}" >> "${GITHUB_OUTPUT}"
+
+set +u
+if [[ "${CI}" ]]; then
+  set -u
+  echo "marketing_version=${MARKETING_VERSION}" >> "${GITHUB_OUTPUT}"
+else
+  set -u
+  echo "marketing_version=${MARKETING_VERSION}"
+fi
